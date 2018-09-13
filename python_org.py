@@ -6,4 +6,5 @@ driver.get("https://python.org")
 
 assert "Python" in driver.title
 
-driver.quit()
+elem = driver.get_element_by_name('q')
+elem.clear()
