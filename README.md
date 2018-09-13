@@ -39,3 +39,32 @@ driver.quit()
 ```"Python"``` string in the title of the url we just opened using ```driver.title```
 
 At last we ```quit()``` the driver which closes the browser window.
+
+Now we will be performing some operations using advanced selenium methods.
+
+##Objective
+1. Open the [python.org](https://www.python.org)
+2. Enter ```pycon``` in search bar of website
+3. Press Enter to start search
+
+**python_org.py**
+```
+elem = driver.find_element_by_name('q')
+elem.clear()
+
+elem.send_keys("pycon")
+elem.send_keys(Keys.RETURN)
+
+assert "No results found." not in driver.page_source
+```
+
+Now is the time that we use the ```Keys``` that we imported. Webdriver has a lot of 
+methods that can be used for interaction with the website, one of the method is 
+```get_element_by_name('q')``` which finds and returns the html element that has name 
+attribute set to ```q``` ofcourse you can find any element as long it exists on the 
+website.
+
+After that we use ```clear()``` function to clear any previous or intitial values set in
+the element. Then we enter ```pycon``` using ```elem.send_keys(value)``` which types in the
+value inside the search form and at last we press Enter or tell to search the word 
+**pycon**
